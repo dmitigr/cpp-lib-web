@@ -304,7 +304,7 @@ inline lisp::Ret_expr fun_web_raw(const lisp::Tup_expr& fun, lisp::Env& env)
       auto [err, res] = str::read_to_string_nothrow(tplfile, true, str::Trim::all);
       if (err)
         return err;
-      else if (std::any_of(cbegin(res), cend(res), str::is_zero<char>))
+      else if (std::any_of(cbegin(res), cend(res), str::is_zero))
         return Err{Errc::txt_invalid, fun.fun_name()};
       else
         return lisp::make_expr<lisp::Str_expr>(std::move(res));
@@ -330,7 +330,7 @@ inline lisp::Ret_expr fun_web_esc(const lisp::Tup_expr& fun, lisp::Env& env)
       auto [err, res] = str::read_to_string_nothrow(tplfile, true, str::Trim::all);
       if (err)
         return err;
-      else if (std::any_of(cbegin(res), cend(res), str::is_zero<char>))
+      else if (std::any_of(cbegin(res), cend(res), str::is_zero))
         return Err{Errc::txt_invalid, fun.fun_name()};
       else
         return lisp::make_expr<lisp::Str_expr>(esc(res));
