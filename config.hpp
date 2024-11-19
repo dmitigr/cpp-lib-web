@@ -27,7 +27,7 @@
 #include <algorithm>
 #include <cctype>
 #include <chrono>
-#include <cstddef>
+#include <cstdint>
 #include <string>
 
 namespace dmitigr::web {
@@ -57,13 +57,13 @@ public:
   }
 
   /// @returns A value of "server.ws.maxIncomingPayloadSize" parameter.
-  std::size_t server_ws_max_incoming_payload_size() const noexcept
+  std::uint32_t server_ws_max_incoming_payload_size() const noexcept
   {
     return server_ws_max_incoming_payload_size_;
   }
 
   /// @returns A value of "server.ws.backpressureBufferSize" parameter.
-  std::size_t server_ws_backpressure_buffer_size() const noexcept
+  std::uint32_t server_ws_backpressure_buffer_size() const noexcept
   {
     return server_ws_backpressure_buffer_size_;
   }
@@ -75,7 +75,7 @@ public:
   }
 
   /// @returns A value of "threadPoolSize" parameter.
-  std::optional<std::size_t> thread_pool_size() const noexcept
+  std::optional<std::uint32_t> thread_pool_size() const noexcept
   {
     return thread_pool_size_;
   }
@@ -140,10 +140,10 @@ private:
   std::string server_host_;
   int server_port_{};
   std::chrono::seconds server_ws_idle_timeout_{};
-  std::size_t server_ws_max_incoming_payload_size_{};
-  std::size_t server_ws_backpressure_buffer_size_{};
+  std::uint32_t server_ws_max_incoming_payload_size_{};
+  std::uint32_t server_ws_backpressure_buffer_size_{};
   std::filesystem::path httper_docroot_;
-  std::optional<std::size_t> thread_pool_size_{};
+  std::optional<std::uint32_t> thread_pool_size_{};
   Language default_language_;
   bool is_behind_proxy_{};
 };
