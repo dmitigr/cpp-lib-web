@@ -18,8 +18,8 @@
 #define DMITIGR_WEB_HTTP_HPP
 
 #include "../base/assert.hpp"
+#include "../base/fsx.hpp"
 #include "../concur/simple_thread_pool.hpp"
-#include "../fsx/filesystem.hpp"
 #include "../http/cookie.hpp"
 #include "../http/errc.hpp"
 #include "../http/errctg.hpp"

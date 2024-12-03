@@ -17,7 +17,7 @@
 #ifndef DMITIGR_WEB_CONFIG_HPP
 #define DMITIGR_WEB_CONFIG_HPP
 
-#include "../fsx/filesystem.hpp"
+#include "../base/fsx.hpp"
 #include "../rajson/document.hpp"
 #include "../ws/server_options.hpp"
 #include "basics.hpp"

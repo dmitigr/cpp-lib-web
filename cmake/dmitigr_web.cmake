@@ -43,7 +43,7 @@ set(dmitigr_web_implementations
 # Dependencies
 # ------------------------------------------------------------------------------
 
-set(dmitigr_libs_web_deps base concur fsx http jrpc lisp log rajson str tpl url ws)
+set(dmitigr_libs_web_deps base concur http jrpc lisp log rajson str tpl url ws)
 
 # ------------------------------------------------------------------------------
 # Tests
