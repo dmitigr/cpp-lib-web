@@ -17,8 +17,8 @@
 #ifndef DMITIGR_WEB_WSJRPC_HPP
 #define DMITIGR_WEB_WSJRPC_HPP
 
+#include "../base/log.hpp"
 #include "../jrpc/jrpc.hpp"
-#include "../log/log.hpp"
 #include "../ws/ws.hpp"
 #include "exceptions.hpp"
 
