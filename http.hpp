@@ -18,8 +18,7 @@
 #define DMITIGR_WEB_HTTP_HPP
 
 #include "../base/assert.hpp"
-#include "../base/fsx.hpp"
-#include "../base/concur.hpp"
+#include "../base/concurrency.hpp"
 #include "../http/cookie.hpp"
 #include "../http/errc.hpp"
 #include "../http/errctg.hpp"
@@ -42,6 +41,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cstdint>
+#include <filesystem>
 #include <functional>
 #include <memory>
 #include <optional>
@@ -393,7 +393,7 @@ public:
 
   /// Constructs the instance.
   static std::shared_ptr<Httper>
-  make(std::shared_ptr<concur::Simple_thread_pool> thread_pool, const Config& cfg)
+  make(std::shared_ptr<concurrency::Simple_thread_pool> thread_pool, const Config& cfg)
   {
     return std::shared_ptr<Httper>(new Httper{std::move(thread_pool), cfg});
   }
@@ -490,7 +490,7 @@ public:
    * @warning The mutex() must be locked before calling this function and till
    * the end of working with the returned value!
    */
-  const std::shared_ptr<concur::Simple_thread_pool>& thread_pool() const noexcept
+  const std::shared_ptr<concurrency::Simple_thread_pool>& thread_pool() const noexcept
   {
     return thread_pool_;
   }
@@ -1099,7 +1099,7 @@ private:
   mutable std::shared_mutex mutex_;
   std::filesystem::path docroot_;
   std::vector<std::regex> publics_;
-  std::shared_ptr<concur::Simple_thread_pool> thread_pool_;
+  std::shared_ptr<concurrency::Simple_thread_pool> thread_pool_;
   Language default_language_{Language::en};
   bool is_behind_proxy_{};
   Auth_checker auth_checker_;
@@ -1116,7 +1116,7 @@ private:
   // ---------------------------------------------------------------------------
 
   /// The constructor.
-  explicit Httper(std::shared_ptr<concur::Simple_thread_pool> thread_pool,
+  explicit Httper(std::shared_ptr<concurrency::Simple_thread_pool> thread_pool,
     const Config& cfg)
     : thread_pool_{std::move(thread_pool)}
     , default_language_{cfg.default_language()}

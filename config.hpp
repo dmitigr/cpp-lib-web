@@ -17,7 +17,6 @@
 #ifndef DMITIGR_WEB_CONFIG_HPP
 #define DMITIGR_WEB_CONFIG_HPP
 
-#include "../base/fsx.hpp"
 #include "../rajson/document.hpp"
 #include "../ws/server_options.hpp"
 #include "basics.hpp"
@@ -25,6 +24,7 @@
 #include "rajson.hpp"
 
 #include <algorithm>
+#include <filesystem>
 #include <cctype>
 #include <chrono>
 #include <cstdint>

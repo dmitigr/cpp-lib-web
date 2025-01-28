@@ -16,7 +16,6 @@
 
 #include "../../web/http.hpp"
 
-namespace concur = dmitigr::concur;
 namespace url = dmitigr::url;
 namespace web = dmitigr::web;
 namespace ws = dmitigr::ws;
